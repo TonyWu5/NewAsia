@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from './Menu.jsx';
+import Menu from '../components/menu/Menu.jsx';
 import data from '../../../testAssets/MenuData.js';
 
 class App extends React.Component {
@@ -7,14 +7,14 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      menu: data
+      menu: data.MenuData
     }
   }
 
   render() {
     return (
       <div>
-        <Menu dishes={this.state.menu.MenuData}/>
+        <Menu dishes={this.state.menu}/>
       </div>
     )
   }
