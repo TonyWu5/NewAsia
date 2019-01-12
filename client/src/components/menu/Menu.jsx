@@ -6,9 +6,7 @@ const Menu = (props) => {
   return (
     <div>Menu
       {props.dishes.map((dish, index) => (
-        <Dish 
-        info={dish}
-        />
+        <Dish info={dish}/>
       ))}
    </div>
   );
