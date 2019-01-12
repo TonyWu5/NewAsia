@@ -33,7 +33,7 @@ class App extends React.Component {
         <hr />
         <Route exact path="/" component={Home} />
         <Route exact path="/history" component={History} />
-        <Route exact path="/menu" render={(props)=><Menu dishes={this.state.menu} /> }/>
+        <Route exact path="/menu" render={(props)=><Menu dishes={this.state.menu}/>}/>
         </div>
       </Router>
     )
