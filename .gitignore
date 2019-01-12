@@ -5,3 +5,4 @@ node_modules
 notes.js
 
 #Bundle?
+client/dist/bundle.js
