@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Menu from '../components/menu/Menu.jsx';
 import data from '../../../testAssets/MenuData.js';
 
@@ -16,7 +17,6 @@ class App extends React.Component {
       <div>
         <Menu dishes={this.state.menu}/>
         <div>Hello from React</div>
-      </div>
     )
   }
 }
