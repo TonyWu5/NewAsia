@@ -15,6 +15,7 @@ class App extends React.Component {
     return (
       <div>
         <Menu dishes={this.state.menu}/>
+        <div>Hello from React</div>
       </div>
     )
   }
