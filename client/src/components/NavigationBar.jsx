@@ -1,6 +1,5 @@
 import React from 'react';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
-import { Link } from 'react-router-dom'; 
 import NavLink from './NavLink.jsx';
 
 const NavigationBar = (props) => (
