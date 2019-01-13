@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import { Switch, Route } from 'react-router-dom';
+import NavigationBar from './NavigationBar.jsx';
 import Home from './Home.jsx';
 import History from './History.jsx';
 import Menu from '../components/menu/Menu.jsx';
@@ -11,33 +11,41 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      menu: data.MenuData
+      menu: data.MenuData,
+      links: [
+        {path: "/", text: "Home", isActive: false},
+        {path: "/history", text: "History", isActive: false},
+        {path: "/menu", text: "Menu", isActive: false},
+      ]
     }
+    this.handleClickTab = this.handleClickTab.bind(this);
+  }
+
+  handleClickTab(i){
+    const links = this.state.links.slice(); 
+    for (let j in links) {
+      links[j].isActive = i == j ;
+    }
+    this.setState({links});
   }
 
   render() {
     return (
-      <Router>
+      <div>
         <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/history">History</Link>
-            </li>
-            <li>
-              <Link to="/menu">Menu</Link>
-            </li>
-          </ul>
-        <hr />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/history" component={History} />
-        <Route exact path="/menu" render={(props)=><Menu dishes={this.state.menu}/>}/>
+          <NavigationBar handleClick={this.handleClickTab} links={this.state.links}/>       
         </div>
-      </Router>
+        <main>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/history" component={History} />
+            <Route exact path="/menu" render={(props)=><Menu dishes={this.state.menu}/>}/>
+          </Switch>
+        </main>
+      </div>
     )
   }
 }
 
 export default App;
+
