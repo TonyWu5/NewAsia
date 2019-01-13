@@ -1,6 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; 
+import NavLink from './NavLink.jsx';
 
 const NavigationBar = () => (
   <div>
@@ -13,15 +14,9 @@ const NavigationBar = () => (
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <NavItem eventKey={1} href="#">
-            <Link to="/">Home</Link>
-          </NavItem>
-          <NavItem eventKey={2} href="#">
-            <Link to="/history">History</Link>
-          </NavItem>
-          <NavItem eventKey={2} href="#">
-            <Link to="/menu">Menu</Link>
-          </NavItem>
+          <NavLink key={1} path={'/'} text={'Home'}/>
+          <NavLink key={2} path={'/history'} text={'History'}} />
+          <NavLink key={3} path={'/menu'} text={'Menu'}/>
         </Nav>
         <Nav pullRight>
           <NavItem eventKey={1} href="#">
