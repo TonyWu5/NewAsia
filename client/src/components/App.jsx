@@ -11,15 +11,29 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      menu: data.MenuData
+      menu: data.MenuData,
+      links: [
+        {path: "/", text: "Home", isActive: false},
+        {path: "/history", text: "History", isActive: false},
+        {path: "/menu", text: "Menu", isActive: false},
+      ]
     }
+    this.handleClickTab = this.handleClickTab.bind(this);
+  }
+
+  handleClickTab(i){
+    const links = this.state.links.slice(); 
+    for (let j in links) {
+      links[j].isActive = i == j ;
+    }
+    this.setState({links});
   }
 
   render() {
     return (
       <div>
         <div>
-          <NavigationBar />       
+          <NavigationBar handleClick={this.handleClickTab} links={this.state.links}/>       
         </div>
         <main>
           <Switch>

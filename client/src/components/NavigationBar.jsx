@@ -3,7 +3,7 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; 
 import NavLink from './NavLink.jsx';
 
-const NavigationBar = () => (
+const NavigationBar = (props) => (
   <div>
     <Navbar inverse collapseOnSelect>
       <Navbar.Header>
@@ -14,9 +14,15 @@ const NavigationBar = () => (
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <NavLink key={1} path={'/'} text={'Home'}/>
-          <NavLink key={2} path={'/history'} text={'History'}} />
-          <NavLink key={3} path={'/menu'} text={'Menu'}/>
+          {
+            props.links.map((link, i)=>
+                <NavLink path={link.path} 
+                        text={link.text} 
+                        isActive={link.isActive}
+                        key={link.path} 
+                        onClick={() => props.handleClick(i)}/>
+            )
+          }
         </Nav>
         <Nav pullRight>
           <NavItem eventKey={1} href="#">

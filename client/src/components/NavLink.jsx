@@ -3,12 +3,10 @@ import { NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; 
 
 class NavLink extends React.Component{
-  constructor(props){
-    super(props);
-  }
+  
   render(){
     return(
-        <NavItem eventKey={this.props.key} href="#">
+        <NavItem onClick={() => this.props.onClick()} eventKey={this.props.key} href="#" active={this.props.isActive}>
           <Link to={this.props.path}>{this.props.text}</Link>
         </NavItem>
     )
