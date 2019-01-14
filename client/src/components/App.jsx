@@ -16,6 +16,7 @@ class App extends React.Component {
         {path: "/", text: "Home", isActive: false},
         {path: "/history", text: "History", isActive: false},
         {path: "/menu", text: "Menu", isActive: false},
+        {path: "/events", text: "Events", isActive: false},
       ]
     }
     this.handleClickTab = this.handleClickTab.bind(this);
